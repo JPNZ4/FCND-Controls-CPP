@@ -2,28 +2,39 @@
 
 1. Scenario 1 Intro
 
-	- The mass is adjusted in the QuadControlParams.txt file to keep the forces equal on the Y axis which will cause the drone to hover at its current altitude.
+	- The mass is adjusted in the QuadControlParams.txt file to keep the vertical forces equal which will cause the drone to hover at its current altitude.
 	- ```PASS: ABS(Quad.PosFollowErr) was less than 0.500000 for at least 0.800000 seconds```
 
 2. Scenario 2 Altitude Control
 
+	- Implemented ```GenerateMotorCommands()``` method (QuadControl.cpp line 73)
+	- Implemented ```BodyRateControl()``` method QuadControl.cpp line 106)
+	- Tuned parameters to prevent the drone from spinning to quickly (QuadControlParams.txt)
 	- ``` PASS: ABS(Quad.Roll) was less than 0.025000 for at least 0.750000 seconds```
-	  ``` PASS: ABS(Quad.Omega.X) was less than 2.500000 for at least 0.750000 seconds ```
+	- ``` PASS: ABS(Quad.Omega.X) was less than 2.500000 for at least 0.750000 seconds ```
 
 3. Scenario 3 Position Control
 
+	- Implemented ```LateralPositionControl()``` method (QuadControl.cpp line 226)
+	- Implemented ```AltitudeControl()``` method QuadControl.cpp line 182)
+	- Tuned parameters kpPosZ, kpPosZ, kpVelXY and kpVelZ (QuadControlParams.txt)
+	- Implemented ```YawControl()``` method QuadControl.cpp line 255)
+	- Tuned parameters kpYaw and pPQR (QuadControlParams.txt)
 	- ```	PASS: ABS(Quad1.Pos.X) was less than 0.100000 for at least 1.250000 seconds ```
-	  ```	PASS: ABS(Quad2.Pos.X) was less than 0.100000 for at least 1.250000 seconds ```
-	  ```	PASS: ABS(Quad2.Yaw) was less than 0.100000 for at least 1.000000 seconds ```
+	- ```	PASS: ABS(Quad2.Pos.X) was less than 0.100000 for at least 1.250000 seconds ```
+	- ```	PASS: ABS(Quad2.Yaw) was less than 0.100000 for at least 1.000000 seconds ```
 
 4. Scenario 4 Non-idealities
 
+	- Edited ```AltitudeControl()``` method to help with the different masses of the drones (QuadControl.cpp line 182)
+	- Tuned and tuned and tuned the parameters (a lot) to get all three drones moving correctly (QuadControlParams.txt)
 	- ``` PASS: ABS(Quad1.Pos.X) was less than 0.100000 for at least 1.250000 seconds ```
-	  ``` PASS: ABS(Quad2.Pos.X) was less than 0.100000 for at least 1.250000 seconds ```
-	  ``` PASS: ABS(Quad2.Yaw) was less than 0.100000 for at least 1.000000 seconds ```
+	- ``` PASS: ABS(Quad2.Pos.X) was less than 0.100000 for at least 1.250000 seconds ```
+	- ``` PASS: ABS(Quad2.Yaw) was less than 0.100000 for at least 1.000000 seconds ```
 			
 5. Scenario 5 Trajectory Follow
 
+	- I had to do a bit more tweaking of the parameters to get this scenario to pass and ensure all previous scenarios continued to pass (QuadControlParams.txt)
 	- ``` PASS: ABS(Quad2.PosFollowErr) was less than 0.250000 for at least 3.000000 seconds ```
 
 ### Testing it Out ###
