@@ -3,18 +3,28 @@
 1. Scenario 1 Intro
 
 	- The mass is adjusted in the QuadControlParams.txt file to keep the forces equal on the Y axis which will cause the drone to hover at its current altitude.
-	- ```
-		PASS: ABS(Quad.PosFollowErr) was less than 0.500000 for at least 0.800000 seconds
-	```
+	- ```PASS: ABS(Quad.PosFollowErr) was less than 0.500000 for at least 0.800000 seconds```
 
-2. Scenario 2
+2. Scenario 2 Altitude Control
 
-3. Scenario 3
+	- ``` PASS: ABS(Quad.Roll) was less than 0.025000 for at least 0.750000 seconds
+		PASS: ABS(Quad.Omega.X) was less than 2.500000 for at least 0.750000 seconds ```
 
-4. Scenario 4
+3. Scenario 3 Position Control
 
+	- ```	PASS: ABS(Quad1.Pos.X) was less than 0.100000 for at least 1.250000 seconds
+		PASS: ABS(Quad2.Pos.X) was less than 0.100000 for at least 1.250000 seconds
+		PASS: ABS(Quad2.Yaw) was less than 0.100000 for at least 1.000000 seconds ```
 
+4. Scenario 4 Non-idealities
 
+	- ``` PASS: ABS(Quad1.Pos.X) was less than 0.100000 for at least 1.250000 seconds
+			PASS: ABS(Quad2.Pos.X) was less than 0.100000 for at least 1.250000 seconds
+			PASS: ABS(Quad2.Yaw) was less than 0.100000 for at least 1.000000 seconds ```
+			
+5. Scenario 5 Trajectory Follow
+
+	- ``` PASS: ABS(Quad2.PosFollowErr) was less than 0.250000 for at least 3.000000 seconds ```
 
 ### Testing it Out ###
 
